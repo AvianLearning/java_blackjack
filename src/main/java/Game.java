@@ -10,6 +10,14 @@ public class Game {
         this.players = new ArrayList<>();
     }
 
+    public ArrayList<Player> getPlayers() {
+        return this.players;
+    }
+
+    public int playerCount() {
+        return this.players.size();
+    }
+
     public void prepareDeck() {
         this.deck.populate();
         this.deck.shuffle();
