@@ -22,6 +22,11 @@ public class Player {
         return this.hand.size();
     }
 
+    public void takeCard(Card card) {
+        this.hand.add(card);
+    }
+
+
     public void setHand(ArrayList<Card> hand) {
         this.hand = hand;
     }

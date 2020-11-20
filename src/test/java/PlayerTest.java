@@ -26,4 +26,10 @@ public class PlayerTest {
         assertEquals(0, playerOne.cardCount());
     }
 
+    @Test
+    public void playerCanTakeCard() {
+        playerOne.takeCard(card);
+        assertEquals(1, playerOne.cardCount());
+    }
+
 }
