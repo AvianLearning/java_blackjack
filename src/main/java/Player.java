@@ -26,6 +26,13 @@ public class Player {
         this.hand.add(card);
     }
 
+    public int handTotal() {
+        int total = 0;
+        for (Card card : this.hand) {
+            total += card.getValueRank();
+        }
+        return total;
+    }
 
     public void setHand(ArrayList<Card> hand) {
         this.hand = hand;

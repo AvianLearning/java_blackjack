@@ -8,12 +8,14 @@ public class PlayerTest {
     Player playerOne;
     Player playerTwo;
     Card card;
+    Card cardTwo;
 
     @Before
     public void before() {
         playerOne = new Player("Andrew");
         playerTwo = new Player("Iain");
         card = new Card(CardSuit.SPADES, CardRank.ACE);
+        cardTwo = new Card(CardSuit.DIAMONDS, CardRank.KING);
     }
 
     @Test
@@ -32,4 +34,10 @@ public class PlayerTest {
         assertEquals(1, playerOne.cardCount());
     }
 
+    @Test
+    public void playerHasHandTotal() {
+        playerOne.takeCard(card);
+        playerOne.takeCard(cardTwo);
+        assertEquals(11, playerOne.handTotal());
+    }
 }
