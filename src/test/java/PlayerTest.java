@@ -7,17 +7,19 @@ public class PlayerTest {
 
     Player playerOne;
     Player playerTwo;
-    Card cardOne;
+    Card card;
 
     @Before
     public void before() {
         playerOne = new Player("Andrew");
         playerTwo = new Player("Iain");
+        card = new Card(CardSuit.SPADES, CardRank.ACE);
     }
 
     @Test
-    public void playerCanGetHand() {
-        playerOne.setHand(cardOne);
-        assertEquals(cardOne, playerOne.getHand());
+    public void playerHasName() {
+        assertEquals("Iain", playerTwo.getName());
     }
+
+
 }

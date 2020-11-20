@@ -28,8 +28,6 @@ public class Deck {
     }
 
     public Card deal() {
-        Card cardDealt = this.cardDeck.get(0);
-        this.cardDeck.remove(cardDealt);
-        return cardDealt;
+        return this.cardDeck.remove(0);
     }
 }

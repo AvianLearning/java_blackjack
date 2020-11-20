@@ -3,18 +3,23 @@ import java.util.ArrayList;
 public class Player {
 
     private String name;
-    private Card hand;
+    private ArrayList<Card> hand;
 
     public Player(String name) {
         this.name = name;
-        this.hand = hand;
+        this.hand = new ArrayList<>();
     }
 
-    public Card getHand() {
+    public ArrayList<Card> getHand() {
         return this.hand;
     }
 
-    public void setHand(Card hand) {
+    public String getName() {
+        return name;
+    }
+
+    public void setHand(ArrayList<Card> hand) {
         this.hand = hand;
     }
+
 }

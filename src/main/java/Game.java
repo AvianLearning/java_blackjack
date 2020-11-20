@@ -27,9 +27,9 @@ public class Game {
         this.players.add(player);
     }
 
-    public void dealCards() {
-        for (Player player : players) {
-            player.setHand(deck.deal());
-        }
-    }
+//    public void dealCards() {
+//        for (Player player : players) {
+//            player.setHand(deck.deal());
+//        }
+//    }
 }
