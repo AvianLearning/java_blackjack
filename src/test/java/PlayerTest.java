@@ -39,5 +39,6 @@ public class PlayerTest {
         playerOne.takeCard(card);
         playerOne.takeCard(cardTwo);
         assertEquals(11, playerOne.handTotal());
+        assertEquals(2, playerOne.cardCount());
     }
 }

@@ -17,9 +17,9 @@ public class Deck {
         CardSuit[] suits = CardSuit.values();
         CardRank[] ranks = CardRank.values();
 
-        for (int i=0; i < suits.length; i++) {
-            for (int j=0; j < ranks.length; j++) {
-                this.cardDeck.add(new Card(suits[i], ranks[j]));
+        for (CardSuit suit : suits) {
+            for (CardRank rank : ranks) {
+                this.cardDeck.add(new Card(suit, rank));
             }
         }
     }
