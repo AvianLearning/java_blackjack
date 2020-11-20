@@ -23,11 +23,5 @@ public class GameTest {
         assertEquals(1, game.playerCount());
     }
 
-    @Test
-    public void canDealACardToPlayer() {
-        game.prepareDeck();
-        game.dealCards();
-        assertEquals(1, player)
-    }
     
 }
