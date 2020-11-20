@@ -18,6 +18,10 @@ public class Player {
         return name;
     }
 
+    public int cardCount() {
+        return this.hand.size();
+    }
+
     public void setHand(ArrayList<Card> hand) {
         this.hand = hand;
     }

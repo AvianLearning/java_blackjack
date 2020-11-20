@@ -21,5 +21,9 @@ public class PlayerTest {
         assertEquals("Iain", playerTwo.getName());
     }
 
+    @Test
+    public void playerStartsWithEmptyHand() {
+        assertEquals(0, playerOne.cardCount());
+    }
 
 }
