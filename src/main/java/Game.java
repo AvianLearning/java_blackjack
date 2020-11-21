@@ -18,18 +18,25 @@ public class Game {
         return this.players.size();
     }
 
+    public void addPlayer(Player player) {
+        this.players.add(player);
+    }
+
     public void prepareDeck() {
         this.deck.populate();
         this.deck.shuffle();
     }
 
-    public void addPlayer(Player player) {
-        this.players.add(player);
+    public void startGame(int numberOfCards) {
+        prepareDeck();
+        for(Player player : this.players) {
+            for (int i=0; i < numberOfCards; i++) {
+                Card card = this.deck.deal();
+            player.takeCard(card);
+            }
+        }
     }
 
-//    public void dealCards() {
-//        for (Player player : players) {
-//            player.setHand(deck.deal());
-//        }
-//    }
+
+
 }

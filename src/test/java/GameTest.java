@@ -6,14 +6,16 @@ import static org.junit.Assert.assertEquals;
 public class GameTest {
     Deck deck;
     Player playerOne;
-    Player playerTwo;
+    Player dealer;
     Game game;
+    Card highCard;
+    Card lowCard;
 
     @Before
     public void before() {
         deck = new Deck();
         playerOne = new Player("Iain");
-        playerTwo = new Player("Andrew");
+        dealer = new Player("Dealer");
         game = new Game(deck);
     }
 
@@ -22,6 +24,14 @@ public class GameTest {
         game.addPlayer(playerOne);
         assertEquals(1, game.playerCount());
     }
+
+    @Test
+    public void canAddFullDeckToGame() {
+        game.prepareDeck();
+        assertEquals(52, deck.getNumOfCards());
+    }
+
+
 
     
 }
