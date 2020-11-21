@@ -28,11 +28,10 @@ public class Game {
     }
 
     public void startGame(int numberOfCards) {
-        prepareDeck();
-        for(Player player : this.players) {
-            for (int i=0; i < numberOfCards; i++) {
-                Card card = this.deck.deal();
-            player.takeCard(card);
+        for(Player player:this.players) {
+            for (int i = 0; i < numberOfCards; i++) {
+                Card card = deck.deal();
+                player.takeCard(card);
             }
         }
     }
