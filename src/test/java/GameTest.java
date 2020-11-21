@@ -45,8 +45,17 @@ public class GameTest {
     @Test
     public void canCheckDraw() {
         playerOne.takeCard(highCard);
+        playerOne.takeCard(lowCard);
         dealer.takeCard(highCard);
+        dealer.takeCard(lowCard);
         assertTrue(game.checkDraw());
+    }
+
+    @Test
+    public void canFindWinner() {
+        playerOne.takeCard(highCard);
+        dealer.takeCard(lowCard);
+        assertEquals(playerOne, game.findWinner());
     }
 
 }
