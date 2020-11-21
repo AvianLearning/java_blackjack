@@ -36,6 +36,16 @@ public class Game {
         }
     }
 
+    public boolean checkDraw() {
+        boolean draw = true;
+        int handTotal = this.players.get(0).handTotal();
+        for(Player player:this.players) {
+            if(player.handTotal() != handTotal) {
+                draw = false;
+            }
+        }
+        return draw;
+    }
 
 
 }

@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class GameTest {
     Deck deck;
@@ -20,6 +21,8 @@ public class GameTest {
         dealer = new Player("Dealer");
         game.addPlayer(playerOne);
         game.addPlayer(dealer);
+        highCard = new Card(CardSuit.DIAMONDS, CardRank.KING);
+        lowCard = new Card(CardSuit.SPADES, CardRank.TWO);
     }
 
     @Test
@@ -37,6 +40,13 @@ public class GameTest {
         game.startGame(2);
         assertEquals(2, playerOne.cardCount());
         assertEquals(2, dealer.cardCount());
+    }
+
+    @Test
+    public void canCheckDraw() {
+        playerOne.takeCard(highCard);
+        dealer.takeCard(highCard);
+        assertTrue(game.checkDraw());
     }
 
 }
