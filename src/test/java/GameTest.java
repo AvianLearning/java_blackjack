@@ -1,3 +1,4 @@
+import com.oracle.webservices.internal.api.EnvelopeStyle;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class GameTest {
         game.addPlayer(playerOne);
         game.addPlayer(dealer);
         highCard = new Card(CardSuit.DIAMONDS, CardRank.KING);
-        lowCard = new Card(CardSuit.SPADES, CardRank.TWO);
+        lowCard = new Card(CardSuit.SPADES, CardRank.ACE);
     }
 
     @Test
@@ -37,7 +38,7 @@ public class GameTest {
 
     @Test
     public void startGameDealsTwoCardsEach() {
-        game.startGame(2);
+        game.startGame();
         assertEquals(2, playerOne.cardCount());
         assertEquals(2, dealer.cardCount());
     }
@@ -56,6 +57,21 @@ public class GameTest {
         playerOne.takeCard(highCard);
         dealer.takeCard(lowCard);
         assertEquals(playerOne, game.findWinner());
+    }
+
+    @Test
+    public void canCheckIfPlayerIsBust() {
+        playerOne.takeCard(highCard);
+        playerOne.takeCard(highCard);
+        playerOne.takeCard(highCard);
+        assertTrue(game.playerIsBust());
+    }
+
+    @Test
+    public void aceAndTenWithTwoCardsIsBlackjack() {
+        playerOne.takeCard(highCard);
+        playerOne.takeCard(lowCard);
+        assertTrue(game.hasBlackjack());
     }
 
 }

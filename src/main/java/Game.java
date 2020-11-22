@@ -4,10 +4,12 @@ public class Game {
 
     private Deck deck;
     private ArrayList<Player> players;
+    private Player dealer;
 
     public Game(Deck deck) {
         this.deck = deck;
         this.players = new ArrayList<>();
+        this.dealer = new Player("Dealer");
     }
 
     public ArrayList<Player> getPlayers() {
@@ -27,9 +29,9 @@ public class Game {
         this.deck.shuffle();
     }
 
-    public void startGame(int numberOfCards) {
+    public void startGame() {
         for(Player player:this.players) {
-            for (int i = 0; i < numberOfCards; i++) {
+            for (int i = 0; i < 2; i++) {
                 Card card = deck.deal();
                 player.takeCard(card);
             }
@@ -45,6 +47,15 @@ public class Game {
             }
         }
         return draw;
+    }
+
+    public boolean playerIsBust() {
+        for(Player player: this.players) {
+            if(player.handTotal() > 21) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public Player findWinner() {
