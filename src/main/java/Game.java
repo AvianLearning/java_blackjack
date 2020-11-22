@@ -49,13 +49,12 @@ public class Game {
         return draw;
     }
 
-    public boolean playerIsBust() {
-        for(Player player: this.players) {
-            if(player.handTotal() > 21) {
-                return true;
-            }
-        }
-        return false;
+    public boolean playerIsBust(Player player) {
+        return player.handTotal() > 21;
+    }
+
+    public boolean hasBlackjack(Player player) {
+        return player.handTotal() == 11 && player.cardCount() == 2;
     }
 
     public Player findWinner() {

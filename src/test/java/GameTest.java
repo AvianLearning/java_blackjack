@@ -2,8 +2,7 @@ import com.oracle.webservices.internal.api.EnvelopeStyle;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class GameTest {
     Deck deck;
@@ -64,14 +63,20 @@ public class GameTest {
         playerOne.takeCard(highCard);
         playerOne.takeCard(highCard);
         playerOne.takeCard(highCard);
-        assertTrue(game.playerIsBust());
+        assertTrue(game.playerIsBust(playerOne));
     }
 
     @Test
     public void aceAndTenWithTwoCardsIsBlackjack() {
         playerOne.takeCard(highCard);
         playerOne.takeCard(lowCard);
-        assertTrue(game.hasBlackjack());
+        assertTrue(game.hasBlackjack(playerOne));
     }
 
+    public void twentyOneWithThreeCardsIsNotBlackjack() {
+        playerOne.takeCard(highCard);
+        playerOne.takeCard(highCard);
+        playerOne.takeCard(lowCard);
+        assertFalse(game.hasBlackjack(playerOne));
+    }
 }
