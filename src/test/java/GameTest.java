@@ -11,6 +11,7 @@ public class GameTest {
     Game game;
     Card highCard;
     Card lowCard;
+    Card sevenOfHearts;
 
     @Before
     public void before() {
@@ -23,6 +24,7 @@ public class GameTest {
         game.addPlayer(dealer);
         highCard = new Card(CardSuit.DIAMONDS, CardRank.KING);
         lowCard = new Card(CardSuit.SPADES, CardRank.ACE);
+        sevenOfHearts = new Card(CardSuit.HEARTS, CardRank.SEVEN);
     }
 
     @Test
@@ -75,11 +77,20 @@ public class GameTest {
     }
 
     @Test
-    public void canFindWinner() {
+    public void canFindWinnerWhereBlackjack() {
         playerOne.takeCard(highCard);
         playerOne.takeCard(lowCard);
         dealer.takeCard(lowCard);
         assertEquals(playerOne, game.findWinner());
+    }
+
+    @Test
+    public void canFindWinnerWhereNoBlackJack() {
+        playerOne.takeCard(highCard);
+        playerOne.takeCard(sevenOfHearts);
+        dealer.takeCard(sevenOfHearts);
+        dealer.takeCard(lowCard);
+        assertEquals(dealer, game.findWinner());
     }
 
 }

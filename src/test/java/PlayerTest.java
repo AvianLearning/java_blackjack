@@ -61,6 +61,14 @@ public class PlayerTest {
     @Test
     public void canShowPlayersFirstCard() {
         playerOne.takeCard(card);
-        assertEquals("ACE of SPADES", playerOne.showFirstCard());
+        assertEquals("ACE of SPADES", playerOne.showCard(0));
+    }
+
+    @Test
+    public void canShowThirdCardInPlayersHand() {
+        playerOne.takeCard(card);
+        playerOne.takeCard(card);
+        playerOne.takeCard(cardTwo);
+        assertEquals("KING of DIAMONDS", playerOne.showCard(2));
     }
 }

@@ -61,7 +61,9 @@ public class Game {
         int highestHand = 0;
         Player winner = null;
         for(Player player: this.players) {
-            if (player.handTotal() > highestHand)  {
+            if (hasBlackjack(player)) {
+                return player;
+            } else if (player.handTotal() > highestHand && !playerIsBust(player))  {
                 highestHand = player.handTotal();
                 winner = player;
             }

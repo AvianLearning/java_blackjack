@@ -26,13 +26,13 @@ public class Player {
         this.hand.add(card);
     }
 
-    public String showFirstCard(){
-        return this.hand.get(0).cardName();
+    public String showCard(int index){
+        return this.hand.get(index).cardName();
     }
 
     public int countAces() {
         int totalAces = 0;
-        for (Card card : this. hand) {
+        for (Card card : this.hand) {
             if (card.getRank() == CardRank.ACE) {
                 totalAces += 1;
             }
