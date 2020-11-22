@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class PlayerTest {
 
@@ -38,7 +39,22 @@ public class PlayerTest {
     public void playerHasHandTotal() {
         playerOne.takeCard(card);
         playerOne.takeCard(cardTwo);
-        assertEquals(11, playerOne.handTotal());
+        assertEquals(21, playerOne.handTotal());
         assertEquals(2, playerOne.cardCount());
+    }
+
+    @Test
+    public void canCountAcesInPlayerHand() {
+        playerOne.takeCard(card);
+        playerOne.takeCard(card);
+        playerOne.takeCard(card);
+        assertEquals(3, playerOne.countAces());
+    }
+
+    @Test
+    public void twoAcesInHandCountAsTwelve() {
+        playerOne.takeCard(card);
+        playerOne.takeCard(card);
+        assertEquals(12, playerOne.handTotal());
     }
 }

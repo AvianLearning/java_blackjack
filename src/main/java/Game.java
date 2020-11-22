@@ -54,7 +54,7 @@ public class Game {
     }
 
     public boolean hasBlackjack(Player player) {
-        return player.handTotal() == 11 && player.cardCount() == 2;
+        return player.handTotal() == 21 && player.cardCount() == 2;
     }
 
     public Player findWinner() {

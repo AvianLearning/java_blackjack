@@ -26,10 +26,23 @@ public class Player {
         this.hand.add(card);
     }
 
+    public int countAces() {
+        int totalAces = 0;
+        for (Card card : this. hand) {
+            if (card.getRank() == CardRank.ACE) {
+                totalAces += 1;
+            }
+        }
+        return totalAces;
+    }
+
     public int handTotal() {
         int total = 0;
         for (Card card : this.hand) {
             total += card.getValueRank();
+            }
+        if (countAces() >= 1) {
+            total += 10;
         }
         return total;
     }

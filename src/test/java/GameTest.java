@@ -52,13 +52,6 @@ public class GameTest {
     }
 
     @Test
-    public void canFindWinner() {
-        playerOne.takeCard(highCard);
-        dealer.takeCard(lowCard);
-        assertEquals(playerOne, game.findWinner());
-    }
-
-    @Test
     public void canCheckIfPlayerIsBust() {
         playerOne.takeCard(highCard);
         playerOne.takeCard(highCard);
@@ -73,10 +66,20 @@ public class GameTest {
         assertTrue(game.hasBlackjack(playerOne));
     }
 
+    @Test
     public void twentyOneWithThreeCardsIsNotBlackjack() {
         playerOne.takeCard(highCard);
         playerOne.takeCard(highCard);
         playerOne.takeCard(lowCard);
         assertFalse(game.hasBlackjack(playerOne));
     }
+
+    @Test
+    public void canFindWinner() {
+        playerOne.takeCard(highCard);
+        playerOne.takeCard(lowCard);
+        dealer.takeCard(lowCard);
+        assertEquals(playerOne, game.findWinner());
+    }
+
 }
