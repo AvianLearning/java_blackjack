@@ -93,4 +93,14 @@ public class GameTest {
         assertEquals(dealer, game.findWinner());
     }
 
+    @Test
+    public void checkWinnerCannotBeBust() {
+        dealer.takeCard(sevenOfHearts);
+        dealer.takeCard(lowCard);
+        playerOne.takeCard(highCard);
+        playerOne.takeCard(sevenOfHearts);
+        playerOne.takeCard(sevenOfHearts);
+        assertEquals(dealer, game.findWinner());
+    }
+
 }
