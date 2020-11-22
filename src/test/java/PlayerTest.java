@@ -57,4 +57,10 @@ public class PlayerTest {
         playerOne.takeCard(card);
         assertEquals(12, playerOne.handTotal());
     }
+
+    @Test
+    public void canShowPlayersFirstCard() {
+        playerOne.takeCard(card);
+        assertEquals("ACE of SPADES", playerOne.showFirstCard());
+    }
 }

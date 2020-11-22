@@ -26,4 +26,9 @@ public class CardTest {
     public void canGetValueRank() {
     assertEquals(1, card1.getValueRank());
     }
+
+    @Test
+    public void canGetCardName() {
+        assertEquals("ACE of CLUBS", card1.cardName());
+    }
 }

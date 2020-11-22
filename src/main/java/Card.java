@@ -19,4 +19,8 @@ public class Card {
     public int getValueRank() {
         return this.rank.getValue();
     }
+
+    public String cardName(){
+        return String.format("%s of %s", this.rank, this.suit);
+    }
 }

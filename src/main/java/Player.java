@@ -26,6 +26,10 @@ public class Player {
         this.hand.add(card);
     }
 
+    public String showFirstCard(){
+        return this.hand.get(0).cardName();
+    }
+
     public int countAces() {
         int totalAces = 0;
         for (Card card : this. hand) {
