@@ -27,6 +27,7 @@ public class Runner {
         System.out.println("You have been dealt: ");
         System.out.println(player.showCard(0));
         System.out.println(player.showCard(1));
+        System.out.println("Your total hand value is: " + player.handTotal());
         System.out.println();
         System.out.println("The Dealer has: ");
         System.out.println(dealer.showCard(0));
@@ -55,23 +56,31 @@ public class Runner {
             System.out.println("You're BUST! The dealer wins...");
             } else {
             System.out.println("You are sticking with a total of: " + player.handTotal());
-        }
+            System.out.println();
+            System.out.println("Now it's the dealer's turn!");
+            System.out.println("The dealer's second card is: ");
+            System.out.println(dealer.showCard(1));
 
-        System.out.println();
-        System.out.println("Now it's the dealer's turn!");
-        System.out.println("The dealer's second card is: ");
-        System.out.println(dealer.showCard(1));
+            while (dealer.handTotal() < 16) {
+                Card card = deck.deal();
+                dealer.takeCard(card);
+                System.out.println("The dealer has been dealt the: ");
+                System.out.println(card.cardName());
+                if (game.playerIsBust(dealer)) {
+                    System.out.println("The dealer is BUST! You win!");
+                    break;
+                }
+            }
 
-        if (dealer.handTotal() < 16) {
-            Card card = deck.deal();
-            dealer.takeCard(card);
-            System.out.println("The dealer has been dealt the: ");
-            System.out.println(card.cardName());
-            System.out.println("The dealer's total hand value is now: " + dealer.handTotal();
-        } else {
             System.out.println("The dealers's total hand value is: " + dealer.handTotal());
+
+            if (game.checkDraw()) {
+                System.out.println("It's a draw!");
+            } else {
+                game.findWinner();
+                System.out.println("The winner is: ");
+                System.out.println(game.findWinner().getName());
+            }
         }
-
-
     }
 }
