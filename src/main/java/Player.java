@@ -45,7 +45,7 @@ public class Player {
         for (Card card : this.hand) {
             total += card.getValueRank();
             }
-        if (countAces() >= 1) {
+        if (countAces() >= 1 && total < 12) {
             total += 10;
         }
         return total;
